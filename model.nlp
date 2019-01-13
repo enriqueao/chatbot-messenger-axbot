@@ -1,0 +1,138 @@
+{
+  "settings": {
+    "languages": [
+      "es"
+    ],
+    "fullSearchWhenGuessed": false,
+    "useNlg": true,
+    "useNeural": true,
+    "useLRC": true
+  },
+  "languages": [
+    "es"
+  ],
+  "intentDomains": {
+    "greetings.bye": "default"
+  },
+  "nerManager": {
+    "settings": {},
+    "threshold": 0.8,
+    "builtins": [
+      "Number",
+      "Ordinal",
+      "Percentage",
+      "Age",
+      "Currency",
+      "Dimension",
+      "Temperature",
+      "DateTime",
+      "PhoneNumber",
+      "IpAddress",
+      "Boolean",
+      "Email",
+      "Hashtag",
+      "URL"
+    ],
+    "namedEntities": {}
+  },
+  "slotManager": {},
+  "classifiers": [
+    {
+      "language": "es",
+      "docs": [
+        {
+          "intent": "greetings.bye",
+          "utterance": [
+            "hast",
+            "lueg"
+          ]
+        }
+      ],
+      "features": {
+        "hast": 1,
+        "lueg": 1
+      },
+      "logistic": {
+        "observations": {
+          "greetings.bye": [
+            [
+              1
+            ]
+          ]
+        },
+        "labels": [
+          "greetings.bye"
+        ],
+        "observationCount": 1,
+        "theta": [
+          {
+            "elements": [
+              1.9222792911018254,
+              1.9222792911018254
+            ]
+          }
+        ]
+      },
+      "useLRC": true,
+      "useNeural": true,
+      "neuralClassifier": {
+        "settings": {
+          "config": {
+            "activation": "leaky-relu",
+            "hiddenLayers": [],
+            "learningRate": 0.1,
+            "errorThresh": 0.0005,
+            "timeout": 120000
+          }
+        },
+        "classifierMap": {
+          "greetings.bye": {
+            "sizes": [
+              2,
+              1
+            ],
+            "layers": [
+              {
+                "hast": {},
+                "lueg": {}
+              },
+              {
+                "0": {
+                  "bias": 28.966733932495117,
+                  "weights": {
+                    "hast": 32.164859771728516,
+                    "lueg": 31.90154457092285
+                  }
+                }
+              }
+            ],
+            "outputLookup": false,
+            "inputLookup": true,
+            "activation": "leaky-relu",
+            "trainOpts": {
+              "iterations": 20000,
+              "errorThresh": 0.005,
+              "log": false,
+              "logPeriod": 10,
+              "learningRate": 0.3,
+              "momentum": 0.1,
+              "callbackPeriod": 10,
+              "beta1": 0.9,
+              "beta2": 0.999,
+              "epsilon": 1e-8
+            }
+          }
+        }
+      }
+    }
+  ],
+  "responses": {
+    "es": {
+      "greetings.bye": [
+        {
+          "response": "Hasta Luego, Buen día"
+        }
+      ]
+    }
+  }
+}
